@@ -1,5 +1,5 @@
 CFLAGS = -g3 -std=c99 -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter
-INCLUDE = -Ilib/glad/include -Ilib/glfw/include
+INCLUDE = -Ilib/glad/include -Ilib/glfw/include -Ilib/stb
 LIBS = lib/glad/src/glad.o lib/glfw/src/libglfw3.a -lm
 EXE = bin/metanoia
 
