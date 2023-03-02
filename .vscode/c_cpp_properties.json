@@ -3,7 +3,9 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/lib/glad/include",
+                "${workspaceFolder}/lib/glfw/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",
