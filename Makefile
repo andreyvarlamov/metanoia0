@@ -1,5 +1,6 @@
 CFLAGS = -g3 -std=c99 -Wall -Wextra -Werror -Wconversion
-INCLUDE = -Ilib/glad/include -Ilib/cglm/include
+INCLUDE = -Ilib/glad/include -Ilib/glfw/include
+LIBS = lib/glad/src/glad.o lib/glfw/src/libglfw3.a -lm
 EXE = bin/metanoia
 
 # ------------------------------------------------------------------------------
@@ -14,13 +15,14 @@ all: bin $(EXE)
 
 libs:
 	cd lib/glad && clang -o src/gald.o -I include -c src/glad.c
-	cd lib/cglm && cmake . -DCGLM_STATIC=ON && make
+# cd lib/cglm && cmake . -DCGLM_STATIC=ON && make
+	cd lib/glfw && cmake . && make
 
 bin:
 	mkdir -p bin
 
 $(EXE):
-	clang -o $(EXE) $(addprefix src/,$(SOURCES)) $(CFLAGS) $(INCLUDE)
+	clang -o $(EXE) $(addprefix src/,$(SOURCES)) $(CFLAGS) $(INCLUDE) $(LIBS)
 
 .PHONY: run
 run: all
