@@ -1,4 +1,4 @@
-CFLAGS = -g3 -std=c99 -Wall -Wextra -Werror -Wconversion
+CFLAGS = -g3 -std=c99 -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter
 INCLUDE = -Ilib/glad/include -Ilib/glfw/include
 LIBS = lib/glad/src/glad.o lib/glfw/src/libglfw3.a -lm
 EXE = bin/metanoia
@@ -11,7 +11,7 @@ main.c
 # ------------------------------------------------------------------------------
 
 .PHONY: all
-all: bin $(EXE)
+all: clean bin $(EXE)
 
 libs:
 	cd lib/glad && clang -o src/gald.o -I include -c src/glad.c
